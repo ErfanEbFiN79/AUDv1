@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   package: requests
-  path: E:\Unity Work 6\AUD V1\Assets\PythonFile\Manage.py
+  path: E:\Unity Work 6\AUDv1\Assets\PythonFile\Manage.py
   timeRe: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
