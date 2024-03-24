@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4d3165720353a4f4bb204f8b098c6af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,13 +110,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3175043935087270084}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0.197, z: -0.039}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.014, y: 0.197, z: 0.845}
   m_LocalScale: {x: 1, y: 0.19460393, z: 0.50706}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4620768570792376693}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &9162773247569294881
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4d3165720353a4f4bb204f8b098c6af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4867682422067048467}
   - component: {fileID: 5507125800032682265}
   - component: {fileID: 2029297483300864113}
+  - component: {fileID: 1629447878414276645}
   m_Layer: 0
   m_Name: Dron
   m_TagString: Enemy
@@ -231,7 +232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4d3165720353a4f4bb204f8b098c6af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -288,3 +289,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   effectDestroy: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+--- !u!114 &1629447878414276645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247175464292103878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72daaf70b4863044b1854ad139d3462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagPlayer: Player
+  tagGround: Ground
+  _player: []
+  speedMoveX: 10
+  speedMoveY: 12
+  distanceFromPlayer:
+  - 10
+  - 12
+  - 14
+  - 16
+  - 18
+  - 20
+  - 22
+  - 24
+  - 26
+  - 28
+  distanceFromGround:
+  - 2
+  - 4
+  - 6
+  - 8
+  - 10
+  - 12
+  - 14
+  timeBtwSetRandomData: 5
+  shotBullet: {fileID: 6171355356268824507, guid: 757d96d0259dab943bcd0a083ad6781f, type: 3}
+  pointShot: {fileID: 6801421099368816497}
+  timeBtwShot: 0.2
+  moveShotBullet: {fileID: 6171355356268824507, guid: 757d96d0259dab943bcd0a083ad6781f, type: 3}
+  moveTimeBtwShot: 0.2

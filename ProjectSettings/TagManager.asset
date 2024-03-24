@@ -6,6 +6,9 @@ TagManager:
   tags:
   - FxTemporaire
   - Enemy
+  - Ground
+  - Drone
+  - Look
   layers:
   - Default
   - TransparentFX

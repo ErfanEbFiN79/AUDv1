@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             Ray ray = cam.ViewportPointToRay(
                 new Vector3(
-                    0.6f,
+                    0.5f,
                     0.5f,
                     0
                     )
@@ -272,7 +272,7 @@ public class PlayerController : MonoBehaviour
         {
             Ray ray = cam.ViewportPointToRay(
                 new Vector3(
-                    0.4f,    
+                    0.5f,    
                     0.5f,
                     0
                 )
