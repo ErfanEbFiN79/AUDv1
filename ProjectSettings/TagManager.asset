@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Drone
   - Look
+  - Bullet
   layers:
   - Default
   - TransparentFX

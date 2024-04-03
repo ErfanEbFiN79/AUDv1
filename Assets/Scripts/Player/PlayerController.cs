@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     #region Variables
 
+    public static PlayerController instance;
+    
     [Header("See and Rotate")] 
     [SerializeField] private Transform viewPoint;
     [SerializeField] private float mouseSensitivity;
@@ -47,14 +49,32 @@ public class PlayerController : MonoBehaviour
     
     private float timeBtwShotSet;
     private float timrBtwShotSet2;
-    
 
-    
-
+    [Header("Change weapon")] 
+    [SerializeField] private GameObject[] fxGunHand1;
+    [SerializeField] private GameObject[] fxGunHand2;
+    [SerializeField] private GameObject[] gunsHand1;
+    [SerializeField] private GameObject[] gunsHand2;
+    [SerializeField] private Gun[] gunsHand1G;
+    [SerializeField] private Gun[] gunsHand2G;
+    private int _selectorGun1;
+    private int _selectorGun2;
+    private int _selectSwitchGun;
  
+    [Header("Change Weapon Ui")]
+    [SerializeField] private GameObject panelChangeWeapon;
+    private int _selectChanger = 0;
+
+    [Header("Hp")] 
+    [SerializeField] private float hp;
     #endregion  
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -86,6 +106,10 @@ public class PlayerController : MonoBehaviour
         // Shot
         ManageShot();
         
+        // Manage gun
+        ManageSelectedGun();
+        ManageSelectChangeGun();
+        ManageUiChangeGun();
     }
     
     #endregion
@@ -178,6 +202,93 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    private void ManageSelectedGun()
+    {
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+        {
+            if (_selectSwitchGun == 0)
+            {
+                _selectorGun1++;
+                
+                if (_selectorGun1 >= gunsHand1.Length)
+                {
+                    _selectorGun1 = 0;
+                }
+            }
+            else
+            {
+                _selectorGun2++;
+                
+                if (_selectorGun2 >= gunsHand2.Length)
+                {
+                    _selectorGun2 = 0;
+                }
+            }
+
+            ActionSelectedGun();
+        }
+
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+        {
+            if (_selectSwitchGun == 0)
+            {
+                _selectorGun1--;
+                if (_selectorGun1 < 0)
+                {
+                    _selectorGun1 = gunsHand1.Length - 1;
+                }
+            }
+            else
+            {
+                _selectorGun2--;
+                if (_selectorGun2 < 0)
+                {
+                    _selectorGun2 = gunsHand2.Length - 1;
+                }
+            }
+            ActionSelectedGun();
+        }
+    }
+
+    private void ManageSelectChangeGun()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (_selectSwitchGun == 0)
+            {
+                _selectSwitchGun = 1;
+            }
+            else
+            {
+                _selectSwitchGun = 0;
+            }
+        }
+    }
+
+    private void ManageUiChangeGun()
+    {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            if (UiManager.instance.changeHappen)
+            {
+                _selectorGun1 = UiManager.instance.codeGunH1;
+                _selectorGun2 = UiManager.instance.codeGunH2;
+                ActionSelectedGun();
+            }
+
+            Cursor.lockState = CursorLockMode.None;
+            panelChangeWeapon.SetActive(true);
+            
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            UiManager.instance.changeHappen = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            panelChangeWeapon.SetActive(false);
+        }
+    }
+
     #region Actions
 
     
@@ -236,7 +347,7 @@ public class PlayerController : MonoBehaviour
     private void Shot()
     {
         timeBtwShotSet += Time.deltaTime;
-        if (timeBtwShotSet >= timeBtwElectShot)
+        if (timeBtwShotSet >= gunsHand1G[_selectorGun1].TimeBtwShotGet)
         {
             Ray ray = cam.ViewportPointToRay(
                 new Vector3(
@@ -250,14 +361,25 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Instantiate(
-                    electObject,
+                    fxGunHand1[_selectorGun1],
                     hit.point,
                     quaternion.identity
                 );
 
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    hit.collider.gameObject.GetComponent<HpController>().HpSet(true, 5);
+                    if (hit.collider != null)
+                    {
+                        if (hit.collider.gameObject != null)
+                        {
+                            if (hit.collider.gameObject.GetComponent<HpController>() != null)
+                            {
+                                hit.collider.gameObject.GetComponent<HpController>().HpSet(true, 
+                                    gunsHand1G[_selectorGun1].DamageGet);
+                            }
+                        }
+                    }
+
                 }
             }
 
@@ -268,7 +390,7 @@ public class PlayerController : MonoBehaviour
     private void Shot2()
     {
         timrBtwShotSet2 += Time.deltaTime;
-        if (timrBtwShotSet2 >= timeBtwFireShot)
+        if (timrBtwShotSet2 >= gunsHand2G[_selectorGun2].TimeBtwShotGet)
         {
             Ray ray = cam.ViewportPointToRay(
                 new Vector3(
@@ -282,24 +404,65 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Instantiate(
-                    fireObject,
+                    fxGunHand2[_selectorGun2],
                     hit.point,
                     quaternion.identity
                 );
 
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    hit.collider.gameObject.GetComponent<HpController>().HpSet(true, 20);
+                    if (hit.collider != null)
+                    {
+                        if (hit.collider.gameObject != null)
+                        {
+                            if (hit.collider.gameObject.GetComponent<HpController>() != null)
+                            {
+                                hit.collider.gameObject.GetComponent<HpController>().HpSet(true, 
+                                    gunsHand2G[_selectorGun2].DamageGet);
+                            }
+                        }
+                    }
                 }
             }
 
             timrBtwShotSet2 = 0;
         }
     }
-    
+
+    private void ActionSelectedGun()
+    {
+        foreach (GameObject obj in gunsHand1)
+        {
+            obj.SetActive(false);
+        }
+        
+        foreach (GameObject obj in gunsHand2)
+        {
+            obj.SetActive(false);
+        }
+        
+        gunsHand1[_selectorGun1].SetActive(true);
+        gunsHand2[_selectorGun2].SetActive(true);
+    }
     #endregion
 
+    #region Hp Manager
 
+    public void HpSystem(bool increase, float value) => HpSystemAction(increase, value);
+
+    private void HpSystemAction(bool increase, float value)
+    {
+        if (increase)
+        {
+            hp += value;
+        }
+        else
+        {
+            hp -= value;
+        }
+    }
+
+    #endregion
     
     
     

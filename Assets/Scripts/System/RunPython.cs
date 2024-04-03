@@ -10,7 +10,7 @@ public class RunPython : MonoBehaviour
 
     #region Variables
 
-    [SerializeField] private string package;
+    [SerializeField] private string[] package;
     [TextArea]
     [SerializeField] private string path;
     [SerializeField] private float timeRe;
@@ -26,7 +26,11 @@ public class RunPython : MonoBehaviour
         if (_timeReSet >= timeRe)
         {
             _timeReSet = 0;
-            CheckPackage(package);
+            foreach (string name in package)
+            {
+                CheckPackage(name);
+            }
+            
             StartPython(path);
         }
     }

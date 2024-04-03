@@ -227,7 +227,12 @@ public class DroneAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            GiveRandom();
+        }
+
+        if (other.gameObject.CompareTag("Bullet"))
         {
             GiveRandom();
         }

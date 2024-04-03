@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1342703143791076379}
   - component: {fileID: 1595670980225002345}
   - component: {fileID: 7025539893453491207}
+  - component: {fileID: -719118584065948369}
   m_Layer: 0
   m_Name: LongShot
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,10 +120,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f58dbefba1924a4980d98f90801cad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagPlayer: Player
-  damage: 20
-  destroyTime: 4
+  player: {fileID: 0}
   speedMove: 10
+  setTarget: {x: 0, y: 0, z: 0}
+--- !u!114 &-719118584065948369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171355356268824507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6847943bad753ae4dac8060dc302d381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  tagWork: Player
+  fxDestroy: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
 --- !u!1001 &6178589402812569554
 PrefabInstance:
   m_ObjectHideFlags: 0
