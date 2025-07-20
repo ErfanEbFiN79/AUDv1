@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6546145550536762920}
   - component: {fileID: 7692232388070785978}
   - component: {fileID: 1321141842613049797}
+  - component: {fileID: 7959726839545017780}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -164,6 +165,22 @@ MonoBehaviour:
   damage: 50
   tagWork: Player
   fxDestroy: {fileID: 2433282508537954060, guid: 7d837ae53176ef64ea2a49d18167df3e, type: 3}
+  numberOfGiveDamageKey: HowMuchSmallBallGiveDamage
+--- !u!114 &7959726839545017780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489200894924405079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d4ca02e7592d04ea8c61ea542304e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objOne: {fileID: 0}
+  tagForObjTwo: Player
+  nameForSaveData: MicroBombDistancePlayer
 --- !u!1001 &1456526567631341562
 PrefabInstance:
   m_ObjectHideFlags: 0

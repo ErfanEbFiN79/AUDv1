@@ -12,6 +12,10 @@ public class HpController : MonoBehaviour
     [Header("Boss")] 
     [SerializeField] private bool boss;
 
+    [Header("Code Setting")]
+    [SerializeField] private string keyInfoHowManyShotGet;
+    [SerializeField] private string keyInfoHowManyDestroy;
+    
     #endregion
 
     #region Unity Methods
@@ -28,6 +32,7 @@ public class HpController : MonoBehaviour
     {
         if (hp < 0)
         {
+            PlayerPrefs.SetInt(keyInfoHowManyDestroy, PlayerPrefs.GetInt(keyInfoHowManyDestroy) + 1);
             Destroy(gameObject);
             Instantiate(
                 effectDestroy,
@@ -55,6 +60,7 @@ public class HpController : MonoBehaviour
         if (down)
         {
             hp -= value;
+            PlayerPrefs.SetInt(keyInfoHowManyShotGet, PlayerPrefs.GetInt(keyInfoHowManyShotGet) + 1);
         }
         else
         {

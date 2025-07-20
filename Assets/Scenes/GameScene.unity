@@ -288,6 +288,50 @@ Transform:
   - {fileID: 269948004}
   m_Father: {fileID: 1439459907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &54778948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54778949}
+  - component: {fileID: 54778950}
+  m_Layer: 0
+  m_Name: '[ResetAllData]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &54778949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54778948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.012384, y: 4.092006, z: 10.890838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54778950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54778948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6ffff017210a94ea5ed0ba9b245dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &74606827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1959,7 +2003,7 @@ GameObject:
   - component: {fileID: 589669299}
   m_Layer: 0
   m_Name: Wall - 1 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2064,7 +2108,7 @@ GameObject:
   - component: {fileID: 598199699}
   m_Layer: 0
   m_Name: Wall - 1 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6611,7 +6655,7 @@ GameObject:
   - component: {fileID: 1326874467}
   m_Layer: 0
   m_Name: Wall - 1 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10193,6 +10237,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 0}
   timeBtwWork: 1
+--- !u!1 &1853733637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853733638}
+  - component: {fileID: 1853733639}
+  m_Layer: 0
+  m_Name: '[Get Data]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853733638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853733637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.012384, y: 4.092006, z: 10.890838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853733639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853733637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d79f2893a1588418b258717f6bfe2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysAccessToDroneData:
+  - DronGetShot
+  - DronDie
+  - DroneChangePose
+  - NumberDroneGiveDamage
+  - HowMuchStartFire
+  - RocketGiveDamage
+  - RocketGetShot
+  - DamagerLaserGive
+  - TimeRocketDestroy
+  - TimeBeActiveRocket
+  - HowMuchSmallBallGiveDamage
+  - NumberMicroBombCreate
+  - NumberElectCreate
+  - WallTouch
+  floatKeyAccess:
+  - TimeFireActive
+  - MicroBombDistancePlayer
+  - LaserTimeActive
+  - TimePlay
+  - PlayerPoseX
+  - PlayerPoseY
+  - PlayerPoseZ
 --- !u!1001 &1873242357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10515,9 +10626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef22b2ee2287bdf41b3a3d74599e7dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBoss: 
-  hpOfBoss: 0
-  levelBoss: 0
   drone: {fileID: 8247175464292103878, guid: 8e3a02cc9aa15574382c7174724539e8, type: 3}
   pointCreateDrone: {fileID: 1581356596}
   howMuchDrone: 3
@@ -10616,6 +10724,8 @@ MonoBehaviour:
   hp: 10000
   effectDestroy: {fileID: 0}
   boss: 1
+  keyInfoHowManyShotGet: 
+  keyInfoHowManyDestroy: 
 --- !u!1 &1911154776
 GameObject:
   m_ObjectHideFlags: 0
@@ -10630,7 +10740,7 @@ GameObject:
   - component: {fileID: 1911154778}
   m_Layer: 0
   m_Name: Wall - 1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11924,3 +12034,5 @@ SceneRoots:
   - {fileID: 666778527}
   - {fileID: 1888994961}
   - {fileID: 2116386864}
+  - {fileID: 1853733638}
+  - {fileID: 54778949}

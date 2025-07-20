@@ -80,6 +80,7 @@ public class Worm : MonoBehaviour
             case WorkState.Attack:
                 for (int i = 0; i < _numberOfShot; i++)
                 {
+                    PlayerPrefs.SetInt("NumberElectCreate", PlayerPrefs.GetInt("NumberElectCreate") + 1);
                     _pointShot = pointShot[Random(0, pointShot.Length)].position;
                     Instantiate(fire, _pointShot, Quaternion.identity);
                 }

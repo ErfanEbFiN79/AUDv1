@@ -19,17 +19,22 @@ public class Rocket : MonoBehaviour
     [Header("Fx Setting")]
     [SerializeField] private GameObject fxTimeDestroy;
 
+    //info setter
+    private int _minTimeExplode;
+    private float _timeActive;
     #endregion
 
     #region Unity Methods
 
     private void Start()
     {
+        _minTimeExplode = 1000;
         _player = GameObject.FindGameObjectWithTag(tagFollow);
     }
 
     private void Update()
     {
+        _timeActive += Time.deltaTime;
         transform.LookAt(_player.transform);
         FollowCalculator();
         Move();
@@ -38,6 +43,10 @@ public class Rocket : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (_timeActive < PlayerPrefs.GetInt("TimeBeActiveRocket", _minTimeExplode))
+        {
+            PlayerPrefs.SetInt("TimeBeActiveRocket", _minTimeExplode);
+        }
         if (fxTimeDestroy != null)
         {
             Instantiate(

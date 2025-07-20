@@ -289,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   effectDestroy: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+  boss: 0
+  keyInfoHowManyShotGet: DronGetShot
+  keyInfoHowManyDestroy: DronDie
 --- !u!114 &1629447878414276645
 MonoBehaviour:
   m_ObjectHideFlags: 0

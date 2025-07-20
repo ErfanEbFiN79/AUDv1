@@ -207,6 +207,7 @@ public class DroneAttack : MonoBehaviour
 
     private void GiveRandom()
     {
+        PlayerPrefs.SetInt("DroneChangePose", PlayerPrefs.GetInt("DroneChangePose") + 1);
         _distanceFromPlayerData = distanceFromPlayer[Random(0, distanceFromPlayer.Length)];
         _distanceFromGroundData = distanceFromGround[Random(0, distanceFromGround.Length)];
         _playerFollowSet = _player[Random(0, _player.Length)];

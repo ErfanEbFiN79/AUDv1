@@ -138,6 +138,7 @@ MonoBehaviour:
   damage: 25
   tagWork: Player
   fxDestroy: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+  numberOfGiveDamageKey: NumberDroneGiveDamage
 --- !u!1001 &6178589402812569554
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -86,7 +86,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-  
+        // Time and Data
+        PlayerPrefs.SetFloat("TimePlay", PlayerPrefs.GetFloat("TimePlay") + 1 *Time.deltaTime);
+        PlayerPrefs.SetFloat("PlayerPoseX", transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPoseY", transform.position.y);
+        PlayerPrefs.SetFloat("PlayerPoseZ", transform.position.z);
         // Get data
         GetData();
             
@@ -463,7 +467,27 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-    
-    
+
+    #region Detecter
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            print("we touch wall");
+            PlayerPrefs.SetInt("WallTouch", PlayerPrefs.GetInt("WallTouch") + 1);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            print("we touch wall");
+            PlayerPrefs.SetInt("WallTouch", PlayerPrefs.GetInt("WallTouch") + 1);
+        }
+    }
+
+    #endregion
     
 }

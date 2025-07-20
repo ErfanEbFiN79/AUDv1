@@ -10,6 +10,7 @@ TagManager:
   - Drone
   - Look
   - Bullet
+  - Wall
   layers:
   - Default
   - TransparentFX

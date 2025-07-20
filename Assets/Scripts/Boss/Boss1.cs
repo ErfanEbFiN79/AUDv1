@@ -182,6 +182,7 @@ public class Boss1 : MonoBehaviour
                 _timeActiveF -= Time.deltaTime;
                 if (_timeActiveF <= 0)
                 {
+                    PlayerPrefs.SetInt("HowMuchStartFire",PlayerPrefs.GetInt("HowMuchStartFire") + 1);
                     _stateAttack3 = StateAttack3.Attack;
                 }
         
@@ -193,6 +194,9 @@ public class Boss1 : MonoBehaviour
                 break;
                         
             case StateAttack3.Attack:
+                
+                PlayerPrefs.SetFloat("TimeFireActive",PlayerPrefs.GetFloat("TimeFireActive") + 1f);
+                
                 foreach (ParticleSystem fx in fires)
                 {
                     fx.gameObject.SetActive(true);
@@ -243,6 +247,7 @@ public class Boss1 : MonoBehaviour
             case StateBombAttack.Attack:
                 for (int i = 0; i < _numberCreateBombSet; i++)
                 {
+                    PlayerPrefs.SetInt("NumberMicroBombCreate", PlayerPrefs.GetInt("NumberMicroBombCreate") + 1);
                     GameObject bomb = Instantiate(
                         bombs,
                         transform.position,

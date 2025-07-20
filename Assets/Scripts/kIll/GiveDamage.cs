@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GiveDamage : MonoBehaviour
@@ -11,6 +12,9 @@ public class GiveDamage : MonoBehaviour
     
     [Header("Fx Setting")] 
     [SerializeField] private GameObject fxDestroy;
+
+    [Header("Key info Setting")] 
+    [SerializeField] private string numberOfGiveDamageKey;
     
 
     #endregion
@@ -18,9 +22,10 @@ public class GiveDamage : MonoBehaviour
     #region Action
 
     private void OnCollisionEnter(Collision other)
-    {
+    { 
         if (other.gameObject.CompareTag(tagWork))
         {
+            PlayerPrefs.SetInt(numberOfGiveDamageKey, PlayerPrefs.GetInt(numberOfGiveDamageKey) + (int)damage);
             PlayerController.instance.HpSystem(false,damage);
             Destroy(gameObject);
             if (fxDestroy != null)

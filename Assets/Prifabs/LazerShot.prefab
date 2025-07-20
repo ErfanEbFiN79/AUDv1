@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7564572153368784159}
   - component: {fileID: 5314406963282777928}
   - component: {fileID: -2345946574646813856}
+  - component: {fileID: 7416693140747381516}
   m_Layer: 0
   m_Name: LazerShot
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   damage: 20
   tagWork: Player
   fxDestroy: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
+  numberOfGiveDamageKey: DamagerLaserGive
 --- !u!114 &-2345946574646813856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +172,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDeleteSelf: 5
   fxDestroy: {fileID: 0}
+--- !u!114 &7416693140747381516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357193174810322389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd66136476cfa84784b13208c3d911f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameSetData: LaserTimeActive
 --- !u!1001 &4600395073567525115
 PrefabInstance:
   m_ObjectHideFlags: 0
